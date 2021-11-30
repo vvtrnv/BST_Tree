@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -58,7 +58,7 @@ private:
     mutable size_t operations;
     mutable std::vector<TypeKey> keys;
 
-    // Вспомогательные методы
+    // Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ РјРµС‚РѕРґС‹
     void get_keys_helper(Node* n) const;
     Node* get_helper(Node* n, const TypeKey& key) const;
     Node* insert_helper(Node* n, const TypeKey& key, const TypeValue& value);
@@ -191,7 +191,7 @@ typename Tree<TypeKey, TypeValue>::Node& Tree<TypeKey, TypeValue>::get(const Typ
     this->operations = 0;
     Node* temp = get_helper(this->_begin, key);
     if (temp == nullptr)
-        throw std::exception("Элемент не найден!\n");
+        throw std::exception("Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ!\n");
 
     return *temp;
 }
@@ -209,7 +209,7 @@ Tree<TypeKey, TypeValue>::insert_helper(Node* n, const TypeKey& key, const TypeV
     else if (key > n->key)
         n->right = insert_helper(n->right, key, value);
     else if (key == n->key)
-        throw std::exception("Такой ключ уже существует!\n");
+        throw std::exception("РўР°РєРѕР№ РєР»СЋС‡ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!\n");
 
     return n;
 }
@@ -234,7 +234,7 @@ Tree<TypeKey, TypeValue>::remove_helper(Node* n, const TypeKey& key) {
     this->operations++;
 
     if (n == nullptr)
-        throw std::exception("Элемент не найден!");
+        throw std::exception("Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ!");
 
     if (key < n->key)
         n->left = remove_helper(n->left, key);
